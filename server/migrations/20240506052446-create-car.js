@@ -33,6 +33,9 @@ module.exports = {
       color: {
         type: Sequelize.STRING,
       },
+      // imagePath: {
+      //   type: Sequelize.ARRAY(Sequelize.STRING),
+      // },
       features: {
         type: Sequelize.STRING,
       },
@@ -42,9 +45,7 @@ module.exports = {
       allwedCity: {
         type: Sequelize.ARRAY(Sequelize.STRING),
       },
-      rented:{type:Sequelize.BOOLEAN,
-        defaultValue:false
-      },
+      rented: { type: Sequelize.BOOLEAN, defaultValue: false },
 
       createdAt: {
         allowNull: false,

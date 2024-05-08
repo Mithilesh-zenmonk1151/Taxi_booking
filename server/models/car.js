@@ -38,7 +38,9 @@ module.exports = (sequelize, DataTypes) => {
     rented:{type:DataTypes.BOOLEAN,
       defaultValue:false
     },
-    // imagePath: DataTypes.STRING,
+    // imagePath: {
+    //   type:DataTypes.ARRAY(DataTypes.STRING)
+    // },
     approved:{type:DataTypes.BOOLEAN,
       defaultValue:false},
       allwedCity:{

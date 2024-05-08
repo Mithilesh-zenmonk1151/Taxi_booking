@@ -22,7 +22,6 @@ module.exports = {
       userId: {
         type: Sequelize.STRING,
       },
-
       carId: {
         type: Sequelize.STRING,
       },

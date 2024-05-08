@@ -11,3 +11,13 @@ exports.addrentedCar=async(req,res)=>{
 
     }
 }
+exports.returnRentedCar= async(req,res)=>{
+    try{
+        const response=await rentedService.returnRentedCar(req);
+        res.status(200).json({response});
+
+    }
+    catch(error){
+        console.log("error");
+    }
+}

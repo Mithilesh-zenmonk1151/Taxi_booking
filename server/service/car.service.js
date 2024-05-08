@@ -13,6 +13,7 @@ exports.addCar = async (payload) => {
       price,
       vehicalNumber,
       allwedCity,
+      files
     } = payload.body;
     console.log("PAYYLLOAD.BBOODDY", payload.body);
 
@@ -30,6 +31,9 @@ exports.addCar = async (payload) => {
     }
 
     const checkUserRole = await User.findOne({ where: { uuid: userId } });
+    const imagePath = files?.map((i) => {
+      return i.path;
+    });
 
     const isOwner = await checkUserRole.role;
     let Car;
@@ -46,6 +50,7 @@ exports.addCar = async (payload) => {
           price: price,
           vehicalNumber: vehicalNumber,
           allwedCity: allwedCity,
+          
         });
       } catch (error) {
         console.log("eeeeeeeee", error);

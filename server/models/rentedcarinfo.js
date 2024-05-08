@@ -24,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
+    bookingId:{type:DataTypes.STRING,
+    },
     userId:{
       type:DataTypes.STRING,
       allowNull:false

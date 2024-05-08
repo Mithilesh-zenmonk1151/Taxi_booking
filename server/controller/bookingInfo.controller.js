@@ -7,7 +7,8 @@ exports.createBooking=async(req,res)=>{
 
     }
     catch(error){
-        throw new CustomError("Internal Server Error",500);
+        // throw new CustomError("Internal Server Error",500);
+        console.log(error);
 
     }
 }
@@ -18,7 +19,18 @@ exports.updateBooking=async(req,res)=>{
 
     }
     catch(error){
-        throw new CustomError("Internal Server Error",500);
+        // throw new CustomError("Internal Server Error",500);
+        console.log(error);
 
+    }
+}
+exports.getAllBookings=async(req,res)=>{
+    try{
+        const response= await bookingService.getAllBookings(req);
+        res.status(200).json({response})
+
+    }
+    catch(error){
+        console.log(error);
     }
 }

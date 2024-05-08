@@ -2,6 +2,7 @@ const {carService}= require("../service");
 const CustomError = require("../utils/error");
 exports.addCar= async(req,res)=>{
     try{
+        console.log("addddDD=======================");
         const response= await carService.addCar(req);
         res.status(201).json({response})
 
