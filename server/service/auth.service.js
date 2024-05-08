@@ -26,11 +26,16 @@ exports.register=async(payload)=>{
 // console.log("Start date after Tommorrow",startDateAfter3Days);
 
     try{
-        const {firstName,lastName,email, password,role}= payload.body;
+        const {firstName,lastName,email, password,confirmPasswword,role}= payload.body;
         const isUserExists= await User.findOne({where:{email:email}});
+        console.log("Payllooofdff..BBBBOOODDDY",payload.body);
         if(isUserExists){
             throw new CustomError("User allready exists",409)
         }
+        if(!(password===confirmPasswword)){
+          throw new CustomError("password and confirm password does  not match",408)
+        }
+        // console.log("confirmPas===",confirmPassword);
         const hashedPassword= await  bcrypt.hash(password, 10);
         const user= await User.create({
             firstName:firstName,
@@ -44,6 +49,7 @@ exports.register=async(payload)=>{
 
     }
     catch(error){
+      throw error
 
     }
 }

@@ -20,10 +20,10 @@
     flex-direction: column;
     background-color: #E0E0E0;
     color: black;
-    height: 850px;
+    height: 900px;
     width: 600px;
     padding: 70px;
-    gap: 20px;
+    gap: 10px;
     
     border-radius: 50px;
     box-shadow: 20px 20px 60px #00000041,inset -20px -20px 60px #ffffff40 ;
@@ -51,7 +51,7 @@
     position: relative;
     left: 10px;
     height: 45px;
-    width: 130px;
+    width: 150px;
     border-radius: 30px;
 }
 .visitL{
