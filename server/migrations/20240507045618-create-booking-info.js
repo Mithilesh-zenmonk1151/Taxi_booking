@@ -12,44 +12,70 @@ module.exports = {
       uuid: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+
       },
       pickUpCity: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       dropCity: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       userId: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       carId: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       startDate: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       endDate: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       duration: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
 
       bankHolder: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       price: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+
       },
       cardNumber: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       paymentStatus: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
+        allowNull: false,
+
       },
       invoiceNumber: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       createdAt: {
         allowNull: false,

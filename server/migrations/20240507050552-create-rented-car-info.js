@@ -12,14 +12,22 @@ module.exports = {
       uuid:{
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+
       },
       carId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+
       },
       bookingId:{type:Sequelize.STRING,
+        allowNull: false,
+
       },
       userId:{
         type:Sequelize.STRING,
+        allowNull: false,
+
       },
     
       createdAt: {

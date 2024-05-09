@@ -22,16 +22,36 @@ module.exports = (sequelize, DataTypes) => {
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+        allowNull:false
       },
       userId: {
         type: DataTypes.STRING,
+        allowNull:false
       },
-      street: DataTypes.STRING,
-      area: DataTypes.STRING,
-      city: DataTypes.STRING,
-      state: DataTypes.STRING,
-      country: DataTypes.STRING,
-      pincode: DataTypes.INTEGER,
+      street:{
+        type: DataTypes.STRING,
+        allowNull:false
+      },
+      area:{
+        type: DataTypes.STRING,
+        allowNull:false
+      },
+      city:{
+        type: DataTypes.STRING,
+        allowNull:false
+      },
+      state: {
+        type: DataTypes.STRING,
+        allowNull:false
+      },
+      country: {
+        type: DataTypes.STRING,
+        allowNull:false
+      },
+      pincode: {
+        type: DataTypes.INTEGER,
+        allowNull:false
+      },
     },
     {
       sequelize,

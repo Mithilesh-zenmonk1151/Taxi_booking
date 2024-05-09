@@ -8,7 +8,7 @@ exports.addCar= async(req,res)=>{
 
     }
     catch(error){
-        throw new CustomError("Internal Server Error",500);
+    console.log(error);
 
     }
 }

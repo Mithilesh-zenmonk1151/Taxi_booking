@@ -23,8 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     uuid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
+      allowNull:false
     },
     bookingId:{type:DataTypes.STRING,
+      allowNull:false
     },
     userId:{
       type:DataTypes.STRING,
@@ -35,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     },
    
     bookingId:{type:DataTypes.STRING,
+      allowNull:false
     },
   }, {
     sequelize,

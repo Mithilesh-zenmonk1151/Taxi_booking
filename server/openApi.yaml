@@ -1,0 +1,324 @@
+openapi: 3.0.0
+info:
+  title: Taxi Rent App
+  description: API endpoints for user signup, login, and car management
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /signup:
+    post:
+      tags:
+        - Users
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSignup'
+      responses:
+        '201':
+          description: User created successfully
+        '409':
+          description: Bad request (e.g., email already exists)
+        '500':
+          description: Internal server error
+
+  /login:
+    post:
+      tags:
+        - Users
+      summary: Login with existing user credentials
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Unauthorized (invalid password)
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+  /cars:
+    get:
+      tags:
+        - Car
+      summary: Get all cars
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Car'
+    post:
+      tags:
+        - Car
+      summary: Create a new car
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarInput'
+      responses:
+        '201':
+          description: Car created successfully
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+
+  /cars/{carId}:
+    get:
+      tags:
+        - Car
+      summary: Get a single car by ID
+      parameters:
+        - in: path
+          name: carId
+          required: true
+          description: ID of the car to retrieve
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Car'
+        '404':
+          description: Car not found
+    put:
+      tags:
+        - Car
+      summary: Update a car
+      parameters:
+        - in: path
+          name: carId
+          required: true
+          description: ID of the car to update
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarInput'
+      responses:
+        '200':
+          description: Car updated successfully
+        '400':
+          description: Bad request
+        '404':
+          description: Car not found
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+        - Car
+      summary: Delete a car
+      parameters:
+        - in: path
+          name: carId
+          required: true
+          description: ID of the car to delete
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: Car deleted successfully
+        '404':
+          description: Car not found
+        '500':
+          description: Internal server error
+    patch:
+      tags:
+        - Car
+      summary: Update a car partially
+      parameters:
+        - in: path
+          name: carId
+          required: true
+          description: ID of the car to update
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarPatchInput'
+      responses:
+        '200':
+          description: Car updated successfully
+        '400':
+          description: Bad request
+        '404':
+          description: Car not found
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    UserSignup:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+      required:
+        - firstName
+        - lastName
+        - email
+        - password
+        - role
+
+    UserLogin:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - email
+        - password
+
+    LoginResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        token:
+          type: string
+
+    Car:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        uuid:
+          type: string
+          format: uuid
+        userId:
+          type: string
+        name:
+          type: string
+        model:
+          type: string
+        launchYear:
+          type: string
+        color:
+          type: string
+        features:
+          type: string
+        price:
+          type: integer
+        vehicleNumber:
+          type: string
+        rented:
+          type: boolean
+        approved:
+          type: boolean
+        allowedCity:
+          type: array
+          items:
+            type: string
+      required:
+        - userId
+        - name
+        - model
+        - launchYear
+        - color
+        - features
+        - price
+        - vehicleNumber
+        - rented
+        - approved
+        - allowedCity
+
+    CarInput:
+      type: object
+      properties:
+        name:
+          type: string
+        model:
+          type: string
+        launchYear:
+          type: string
+        color:
+          type: string
+        features:
+          type: string
+        price:
+          type: integer
+        vehicleNumber:
+          type: string
+        rented:
+          type: boolean
+        approved:
+          type: boolean
+        allowedCity:
+          type: array
+          items:
+            type: string
+      required:
+        - name
+        - model
+        - launchYear
+        - color
+        - features
+        - price
+        - vehicleNumber
+        - rented
+        - approved
+        - allowedCity
+
+    CarPatchInput:
+      type: object
+      properties:
+        name:
+          type: string
+        model:
+          type: string
+        launchYear:
+          type: string
+        color:
+          type: string
+        features:
+          type: string
+        price:
+          type: integer
+        vehicleNumber:
+          type: string
+        rented:
+          type: boolean

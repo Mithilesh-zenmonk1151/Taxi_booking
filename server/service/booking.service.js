@@ -18,13 +18,14 @@ exports.createBooking = async (payload) => {
       bankHolder,
       cardNumber,
       paymentStatus,
-      invoiceNumber,
+     
     } = payload.body;
     console.log("qwre34t======", payload.body);
     const carInfo = await car.findOne({ where: { uuid: carId } });
     const carPerDayPrice = await carInfo.price;
     console.log("Car Info===============", carPerDayPrice);
-    const cityInfo = await carInfo.allwedCity;
+    const cityInfo = await carInfo.allowedCity;
+    // console.log("")
     const lenghCity = await cityInfo.length;
     let count = 0;
     // if(startDate===endDate){
@@ -101,7 +102,20 @@ exports.createBooking = async (payload) => {
     const totalPriceTobePaid = (await carPerDayPrice) * response;
     console.log("TTTOOTAL============", totalPriceTobePaid);
     console.log("TTTYYYYPPE==", typeof totalPriceTobePaid);
-    let bookingInfo;
+    function generateInvoiceNumber() {
+      const characters = 'ABabzmid0123456789';
+      const length = 30;
+      let invoiceNumber = '';
+    
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        invoiceNumber += characters[randomIndex];
+      }
+    
+      return invoiceNumber;
+    }
+    
+    const invoiceNumber = generateInvoiceNumber();    let bookingInfo;
     try {
       if (count === 2) {
         console.log("Count=====", count);

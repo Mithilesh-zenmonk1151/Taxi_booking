@@ -12,7 +12,7 @@ exports.addCar = async (payload) => {
       features,
       price,
       vehicalNumber,
-      allwedCity,
+      allowedCity,
       files
     } = payload.body;
     console.log("PAYYLLOAD.BBOODDY", payload.body);
@@ -49,7 +49,7 @@ exports.addCar = async (payload) => {
           features: features,
           price: price,
           vehicalNumber: vehicalNumber,
-          allwedCity: allwedCity,
+          allowedCity: allowedCity,
           
         });
       } catch (error) {

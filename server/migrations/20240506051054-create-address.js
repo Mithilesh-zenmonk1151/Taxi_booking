@@ -12,27 +12,43 @@ module.exports = {
       uuid: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+
       },
       userId:{
         type:Sequelize.STRING,
+        allowNull: false,
+
       },
       street: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       area: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       city: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       state: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       country: {
         type: Sequelize.STRING,
+        allowNull: false,
+
       },
       pincode: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+
       },
       createdAt: {
         allowNull: false,

@@ -7,6 +7,8 @@ type initialStateProps = {
     content: {
       message: string;
       user: {
+        firstName:string;
+        lastName:string;
         email: string;
         name: string;
         role: string;
@@ -28,6 +30,8 @@ type initialStateProps = {
         name: '',
         role: '',
         id: '',
+        firstName:'',
+        lastName:''
       },
     
     },

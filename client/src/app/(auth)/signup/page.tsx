@@ -12,6 +12,12 @@ import Link from 'next/link'
 
 export default function SignupPage() {
   const router= useRouter();
+  const img = require("../../../../public/images/Landing.jpg");
+  const styling = {
+    backgroundImage: `url('${img}')`,
+    width:"100%",
+    height:"100%"
+}
   const dispatch= useAppDispatch();
     const [firstName,setFirstName]=useState("");
     const [lastName,setLastName]=useState("");
@@ -36,7 +42,11 @@ export default function SignupPage() {
 
      
   return (
-    <Box className={style.signup}>
+    <Box className={style.signup} style={styling}>
+       <Box className={style.mainsignupbody}>
+        <Box className={style.leftsignupbody} >
+           
+        </Box>
        <Box className={style.signupbody}>
         <h1 className={style.headingS}>Signup</h1>
         <InputFieldCompo placeholder='Enter your first name' value={firstName} label='Firstname' type='text' name='firstName' nameT='firstNamer' customClassName='' setValue={setFirstName}/>
@@ -48,6 +58,8 @@ export default function SignupPage() {
         <Buttons handleOnClick={handleOnClick} classNameBtn={style.btnS} text='Sign Up'/>
 
         <Link href="/login">Visit Login Page </Link>
+       </Box>
+
        </Box>
 
     </Box>

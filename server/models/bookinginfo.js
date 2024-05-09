@@ -8,7 +8,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.User,{foreignKey:"userId",as:"user"})
+      this.belongsTo(models.car, {
+        foreignKey: 'carId', 
+        as: 'car' 
+      });
+      this.hasMany(models.BookingInfo, {
+        foreignKey: 'carId', 
+        as: 'bookings' 
+      });
     }
   }
   BookingInfo.init(
@@ -22,23 +30,26 @@ module.exports = (sequelize, DataTypes) => {
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+        allowNull:false
       },
       userId: {
         type: DataTypes.STRING,
+        allowNull:false
       },
       carId: {
         type: DataTypes.STRING,
+        allowNull:false
       },
-      pickUpCity: DataTypes.STRING,
-      dropCity: DataTypes.STRING,
-      startDate: DataTypes.STRING,
-      endDate: DataTypes.STRING,
-      duration: DataTypes.STRING,
-      bankHolder: DataTypes.STRING,
-      price: DataTypes.INTEGER,
-      cardNumber: DataTypes.STRING,
-      paymentStatus: DataTypes.BOOLEAN,
-      invoiceNumber: DataTypes.STRING,
+      pickUpCity: {type:DataTypes.STRING,allowNull:false},
+      dropCity: {type:DataTypes.STRING,allowNull:false},
+      startDate: {type:DataTypes.STRING,allowNull:false},
+      endDate:{type:DataTypes.STRING,allowNull:false},
+      duration:{type:DataTypes.STRING,allowNull:false},
+      bankHolder:{type:DataTypes.STRING,allowNull:false},
+      price: {type:DataTypes.INTEGER,allowNull:false},
+      cardNumber:{type:DataTypes.STRING,allowNull:false},
+      paymentStatus: {type:DataTypes.BOOLEAN,allowNull:false},
+      invoiceNumber: {type:DataTypes.STRING,allowNull:false},
     },
     {
       sequelize,

@@ -11,8 +11,10 @@ export async function POST(request: NextRequest) {
     );
     
     const loginData=res?.data?.user
+    console.log("Loooog=====", res.data.response.token);
     
-const token= res?.data?.user?.token;
+const token=res?.data?.response?.token;
+ console.log("Token=====================",token);
 
     if (!res) {
       alert("submitting form failed");
