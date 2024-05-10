@@ -22,7 +22,6 @@ module.exports = {
       },
       lastName: {
         type: Sequelize.STRING,
-        allowNull: false,
 
       },
       email: {
@@ -39,6 +38,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
 
+      },
+      addressId:{
+        type:Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

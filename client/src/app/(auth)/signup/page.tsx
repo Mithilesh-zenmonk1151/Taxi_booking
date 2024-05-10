@@ -9,6 +9,7 @@ import { registerUsers } from '@/redux/auth/authAction'
 import SelectMenu from '@/components/select/SelectMenu'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import toast from 'react-hot-toast'
 
 export default function SignupPage() {
   const router= useRouter();
@@ -32,6 +33,7 @@ export default function SignupPage() {
         try{
           console.log("USSSSEEERRR===",user);
           dispatch(registerUsers(user));
+          toast.success("User signup successfully")
 
 
         }

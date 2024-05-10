@@ -3,5 +3,6 @@ module.exports={
     carController:require("./car.controller"),
     bookingController:require("./bookingInfo.controller"),
     rentedController:require("./rentedCar.controller"),
-    addressController:require("./address.controller")
+    addressController:require("./address.controller"),
+    userController:require("./user.controller")
 }

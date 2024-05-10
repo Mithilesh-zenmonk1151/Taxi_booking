@@ -23,3 +23,13 @@ exports.updateAddress=async(req,res)=>{
     }
 
 }
+exports.getAddress=async(req,res)=>{
+    try{
+        const response= await addressService.getAddress(req);
+        res.status(200).json({response});
+
+    }
+    catch(error){
+        console.log(error);
+    }
+}

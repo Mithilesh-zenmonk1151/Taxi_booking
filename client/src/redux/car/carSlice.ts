@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { addcar } from './carAction';
 // import { , getTests } from './testAction';
 // import {addCar}
 
@@ -83,14 +84,14 @@ export const testSlice = createSlice({
             state.error = action.error
             state.content = []
         })
-        builder.addCase(createTests.pending, (state) => {
+        builder.addCase(addcar.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(createTests.fulfilled, (state, action) => {
+        builder.addCase(addcar.fulfilled, (state, action) => {
             state.isLoading = false
             state.content = [...state.content, action.payload]
         })
-        builder.addCase(createTests.rejected, (state, action) => {
+        builder.addCase(addcar.rejected, (state, action) => {
             state.isLoading = false
             state.content = []
             state.error = action.error

@@ -12,7 +12,7 @@ type initialStateProps = {
         email: string;
         name: string;
         role: string;
-        id: string;
+        id: number;
       };
       
     } 
@@ -29,7 +29,7 @@ type initialStateProps = {
         email: '',
         name: '',
         role: '',
-        id: '',
+        id: 0,
         firstName:'',
         lastName:''
       },

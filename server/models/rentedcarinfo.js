@@ -25,20 +25,20 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       allowNull:false
     },
-    bookingId:{type:DataTypes.STRING,
+    bookingId:{type:DataTypes.INTEGER,
       allowNull:false
     },
     userId:{
-      type:DataTypes.STRING,
+      type:DataTypes.INTEGER,
       allowNull:false
     },
-    carId:{type: DataTypes.STRING,
+    carId:{type: DataTypes.INTEGER,
       allowNull:false
     },
    
-    bookingId:{type:DataTypes.STRING,
-      allowNull:false
-    },
+    // bookingId:{type:DataTypes.UUID,
+    //   allowNull:false
+    // },
   }, {
     sequelize,
     modelName: 'rentedCarInfo',

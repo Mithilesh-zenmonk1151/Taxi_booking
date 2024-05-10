@@ -9,21 +9,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.car, {
-        foreignKey: "userId",
+        foreignKey: "id",
         sourceKey: "id",
       });
       this.hasMany(models.BookingInfo, {
         foreignKey: "userId",
         as: "bookings",
       });
+      this.hasMany(models.address, {
+        foreignKey: 'userId', 
+        as: 'address' 
+      });
     }
   }
   User.init(
     {
       id: {
+        DataTypes:DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
       },
       uuid: {
@@ -32,10 +37,13 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
       },
       firstName: { type: DataTypes.STRING, allowNull: false },
-      lastName: { type: DataTypes.STRING, allowNull: false },
+      lastName: { type: DataTypes.STRING },
       email: { type: DataTypes.STRING, allowNull: false },
       password: { type: DataTypes.STRING, allowNull: false },
       role: { type: DataTypes.STRING, allowNull: false },
+      addressId:{
+        type:DataTypes.INTEGER
+      }
     },
     {
       sequelize,

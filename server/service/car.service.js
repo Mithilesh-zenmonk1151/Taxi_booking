@@ -15,7 +15,7 @@ exports.addCar = async (payload) => {
       allowedCity,
       files
     } = payload.body;
-    console.log("PAYYLLOAD.BBOODDY", payload.body);
+    console.log(" CAr===PAYYLLOAD.BBOODDY", payload.body);
 
     if (!userId) {
       throw new CustomError("User doesn't exists", 404);
@@ -30,7 +30,7 @@ exports.addCar = async (payload) => {
       throw new CustomError("Same number of vehical already exists", 409);
     }
 
-    const checkUserRole = await User.findOne({ where: { uuid: userId } });
+    const checkUserRole = await User.findOne({ where: { id: userId } });
     const imagePath = files?.map((i) => {
       return i.path;
     });
@@ -72,11 +72,11 @@ exports.approvedByAdmin = async (payload) => {
     if (!userId) {
       throw new CustomError("user not found", 404);
     }
-    const user = await User.findOne({ where: { uuid: userId } });
+    const user = await User.findOne({ where: { id: userId } });
     const isAdmin = await user.role;
     let approvedCar;
     if (isAdmin === "Admin") {
-      const isResponseExist = await car.findOne({ where: { uuid: carId } });
+      const isResponseExist = await car.findOne({ where: { id: carId } });
       if (isResponseExist) {
         console.log("user========", user.role);
         try {

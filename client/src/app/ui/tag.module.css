@@ -1,0 +1,21 @@
+.tag {
+    display: inline-block;
+    background-color: #eef2f7;
+    color: #111010;
+    padding: 4px 8px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 16px;
+    margin-top: 10px;
+  }
+  .close{
+    cursor: pointer;
+    color: rgb(51, 52, 53);
+  }
+  .showtag{
+    border: 1px solid rgb(190, 184, 184);
+    width: 300px;
+    height: 100px;
+    overflow-y: scroll;
+
+  }

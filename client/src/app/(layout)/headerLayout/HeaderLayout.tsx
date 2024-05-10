@@ -17,7 +17,8 @@ export default function HeaderLayout() {
             <Link href="/addcar"> </Link>
             <Link href="/services">Services</Link>
             <Link href="/blog">Blog</Link>   
-            <Link href="/contactus">Contact us</Link>     </ul>
+            <Link href="/contactus">Contact us</Link> 
+            <Link  href="/addcar">Add car</Link>    </ul>
        </nav>
      <div className={headerlayout.rightnav}>
 

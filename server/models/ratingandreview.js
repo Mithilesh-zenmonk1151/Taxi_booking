@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       allowNull:false
     },
-    carId: {type:DataTypes.STRING,allowNull:false},
-    userId: {type:DataTypes.STRING,allowNull:false},
+    carId: {type:DataTypes.INTEGER,allowNull:false},
+    userId: {type:DataTypes.INTEGER,allowNull:false},
     rating: {type:DataTypes.INTEGER,allowNull:false},
     review: {type:DataTypes.STRING,allowNull:false},
   }, {

@@ -4,6 +4,8 @@ import "./globals.css";
 import ReduxProvider from "@/store/reduxProvider";
 import HeaderLayout from "./(layout)/headerLayout/HeaderLayout";
 import FooterLayout from "./(layout)/footerLayout/FooterLayout";
+import { Toaster } from "react-hot-toast";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReduxProvider> <HeaderLayout/>{children} <FooterLayout/></ReduxProvider>
+        <ReduxProvider> <HeaderLayout/>{children}  <Toaster position="top-center" /></ReduxProvider>
         
         </body>
     </html>

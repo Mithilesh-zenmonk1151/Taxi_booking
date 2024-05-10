@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 
+
 const CustomError = require("../utils/error");
 exports.register=async(payload)=>{
 //   function calculateStartDate(offset) {
@@ -97,21 +98,6 @@ exports.login= async(payload)=>{
         const allUsers = await users.findAll();
         console.log("users");
         return allUsers;
-      } catch (error) {
-        throw error;
-      }
-    };
-    exports.updateUser = async (payload) => {
-      try {
-        const { userId } = payload.params;
-        const { name, email } = payload.body;
-        const updateUser = await users.create({ where: { uuid: userId } });
-        await updateUser({
-          name: name,
-          email: email,
-        });
-        await updateUser.save();
-        return updateUser;
       } catch (error) {
         throw error;
       }

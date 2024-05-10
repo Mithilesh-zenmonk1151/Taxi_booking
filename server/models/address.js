@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.User, {
+        foreignKey: "userId",
+        as:"user",
+        onDelete: "CASCADE",
+      });
     }
   }
   address.init(
@@ -22,35 +27,33 @@ module.exports = (sequelize, DataTypes) => {
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        allowNull:false
+        allowNull: false,
       },
       userId: {
-        type: DataTypes.STRING,
-        allowNull:false
+        type: DataTypes.INTEGER,
       },
-      street:{
+      street: {
         type: DataTypes.STRING,
-        allowNull:false
       },
-      area:{
-        type: DataTypes.STRING,
-        allowNull:false
+      phoneNumber: {
+        type: DataTypes.INTEGER,
       },
-      city:{
+      area: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull: false,
+      },
+      city: {
+        type: DataTypes.STRING,
       },
       state: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull: false,
       },
       country: {
         type: DataTypes.STRING,
-        allowNull:false
       },
       pincode: {
         type: DataTypes.INTEGER,
-        allowNull:false
       },
     },
     {

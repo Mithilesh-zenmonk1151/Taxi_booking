@@ -31,7 +31,7 @@ module.exports = {
 
       },
       userId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
 
       },

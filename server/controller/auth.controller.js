@@ -7,7 +7,7 @@ exports.register=async(req,res)=>{
   }
   catch(error){
     console.log(error);
-    throw new CustomError("Internal server error",500);
+    
 
   }
     
@@ -24,3 +24,13 @@ exports.login= async(req,res)=>{
 
     }
 }
+// exports.getUsers=async(req,res)=>{
+//   try{
+//     const response= await authService.getUsers(req);
+//     res.status
+
+//   }
+//   catch(error){
+
+//   }
+// }

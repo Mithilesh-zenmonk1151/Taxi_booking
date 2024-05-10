@@ -6,14 +6,14 @@ import addCarService from "@/services/carService/addnewcarservice";
 import fetchCars from "@/services/carService/getcarservice";
 // import loginService from "@/service/Auth/register.service";
 
-export const createTests = createAsyncThunk(
+export const addcar = createAsyncThunk(
  createCarType,
   async (car:{name:string, userId:number,price:number, model:string, launchYear: string,color:string,features:string,vehicalNumber:string,rented:boolean,approved:boolean, allowedCity: string[]}, { rejectWithValue }) => {
     try {
       // console.log("Slice wala teststssss",test);
       const response = await addCarService(car);
       const data = response?.data;
-      // console.log(data);
+      console.log("data car added from slice===",data);
       return data;
     } catch (err) {
       console.log(err);

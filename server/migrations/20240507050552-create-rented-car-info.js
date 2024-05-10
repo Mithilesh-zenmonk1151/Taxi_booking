@@ -16,16 +16,16 @@ module.exports = {
 
       },
       carId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
 
       },
-      bookingId:{type:Sequelize.STRING,
+      bookingId:{type:Sequelize.INTEGER,
         allowNull: false,
 
       },
       userId:{
-        type:Sequelize.STRING,
+        type:Sequelize.INTEGER,
         allowNull: false,
 
       },

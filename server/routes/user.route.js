@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const {  authController } = require('../controller');
+const {  userController } = require('../controller');
 
-router.post('/signup', authController.register);
-router.post('/login',   authController.login);
-// router.get('/users',   authController.getAllUser);
+// router.post('/', bookingController.createBooking);
+router.put('/',userController.updateUser);
+router.get("/",userController.getUsers);
+// router.get("/",bookingController.getAllBookings);
+// router.get("/approved",carController.getApprovedCars);
 
 module.exports = router;

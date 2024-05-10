@@ -8,14 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.User,{foreignKey:"userId",as:"user"})
+      this.belongsTo(models.User, { foreignKey: "userId", as: "user" });
       this.belongsTo(models.car, {
-        foreignKey: 'carId', 
-        as: 'car' 
-      });
-      this.hasMany(models.BookingInfo, {
-        foreignKey: 'carId', 
-        as: 'bookings' 
+        foreignKey: "carId",
+        as: "car",
       });
     }
   }
@@ -30,26 +26,26 @@ module.exports = (sequelize, DataTypes) => {
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        allowNull:false
+        allowNull: false,
       },
       userId: {
-        type: DataTypes.STRING,
-        allowNull:false
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       carId: {
-        type: DataTypes.STRING,
-        allowNull:false
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
-      pickUpCity: {type:DataTypes.STRING,allowNull:false},
-      dropCity: {type:DataTypes.STRING,allowNull:false},
-      startDate: {type:DataTypes.STRING,allowNull:false},
-      endDate:{type:DataTypes.STRING,allowNull:false},
-      duration:{type:DataTypes.STRING,allowNull:false},
-      bankHolder:{type:DataTypes.STRING,allowNull:false},
-      price: {type:DataTypes.INTEGER,allowNull:false},
-      cardNumber:{type:DataTypes.STRING,allowNull:false},
-      paymentStatus: {type:DataTypes.BOOLEAN,allowNull:false},
-      invoiceNumber: {type:DataTypes.STRING,allowNull:false},
+      pickUpCity: { type: DataTypes.STRING, allowNull: false },
+      dropCity: { type: DataTypes.STRING, allowNull: false },
+      startDate: { type: DataTypes.STRING, allowNull: false },
+      endDate: { type: DataTypes.STRING, allowNull: false },
+      duration: { type: DataTypes.STRING, allowNull: false },
+      bankHolder: { type: DataTypes.STRING, allowNull: false },
+      price: { type: DataTypes.INTEGER, allowNull: false },
+      cardNumber: { type: DataTypes.STRING, allowNull: false },
+      paymentStatus: { type: DataTypes.BOOLEAN, allowNull: false },
+      invoiceNumber: { type: DataTypes.STRING, allowNull: false },
     },
     {
       sequelize,

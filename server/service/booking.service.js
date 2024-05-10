@@ -1,6 +1,7 @@
 const { BookingInfo } = require("../models");
 const bookinginfo = require("../models/bookinginfo");
 const { car } = require("../models");
+const {User}= require("../models");
 const CustomError = require("../utils/error");
 exports.createBooking = async (payload) => {
   try {
@@ -18,10 +19,9 @@ exports.createBooking = async (payload) => {
       bankHolder,
       cardNumber,
       paymentStatus,
-     
     } = payload.body;
     console.log("qwre34t======", payload.body);
-    const carInfo = await car.findOne({ where: { uuid: carId } });
+    const carInfo = await car.findOne({ where: { id: carId } });
     const carPerDayPrice = await carInfo.price;
     console.log("Car Info===============", carPerDayPrice);
     const cityInfo = await carInfo.allowedCity;
@@ -103,19 +103,20 @@ exports.createBooking = async (payload) => {
     console.log("TTTOOTAL============", totalPriceTobePaid);
     console.log("TTTYYYYPPE==", typeof totalPriceTobePaid);
     function generateInvoiceNumber() {
-      const characters = 'ABabzmid0123456789';
+      const characters = "ABabzmid0123456789";
       const length = 30;
-      let invoiceNumber = '';
-    
+      let invoiceNumber = "";
+
       for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * characters.length);
         invoiceNumber += characters[randomIndex];
       }
-    
+
       return invoiceNumber;
     }
-    
-    const invoiceNumber = generateInvoiceNumber();    let bookingInfo;
+
+    const invoiceNumber = generateInvoiceNumber();
+    let bookingInfo;
     try {
       if (count === 2) {
         console.log("Count=====", count);
@@ -165,12 +166,18 @@ exports.updateBooking = async (payload) => {
 };
 exports.getAllBookings = async (payload) => {
   try {
-    const bookings = await BookingInfo.findAll();
+    const bookings = await BookingInfo.findAll({include: [
+      { model: User, as: 'user' },
+      { model: car, as: 'car' }
+    ]});
+    console.log("Booking==========================");
+
     if (!bookings) {
       throw new CustomError("Bookings not found", 404);
     }
     return bookings;
   } catch (error) {
+    console.log("==================",error);
     throw error;
   }
 };

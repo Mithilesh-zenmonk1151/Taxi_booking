@@ -3,5 +3,6 @@ module.exports={
     carService:require("./car.service"),
     bookingService:require("./booking.service"),
     rentedService:require("./rentedCar.service"),
-    addressService:require("./address.service")
+    addressService:require("./address.service"),
+    userService:require("./user.service")
 }

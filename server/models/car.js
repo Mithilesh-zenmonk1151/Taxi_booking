@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // this.hasOne(models.carImages)
+      this.belongsTo(models.User, {
+        foreignKey: 'userId', 
+        as: 'user' 
+      });
       
     }
   }
@@ -27,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false
     },
     userId:{
-      type:DataTypes.STRING,
+      type:DataTypes.INTEGER,
       allowNull:false
     },
     name: {type:DataTypes.STRING,allowNull:false},

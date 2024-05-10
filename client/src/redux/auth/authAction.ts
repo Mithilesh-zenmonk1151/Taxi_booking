@@ -25,6 +25,7 @@ export const loginUsers = createAsyncThunk(loginType, async (user:{email:string,
         // console.log(data)
         
         const token=data?.loginData?.token
+        console.log("Datattaatat=======",data);
         localStorage.setItem("logged", "true");
         localStorage.setItem("token", token);
     
