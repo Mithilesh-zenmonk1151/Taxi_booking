@@ -57,6 +57,7 @@ exports.register=async(payload)=>{
 exports.login= async(payload)=>{
     try {
         const { email, password } = payload.body;
+        console.log("payload..",payload.body);
     
         if (!email && !password) {
           throw new CustomError("User credentials not found", 422);

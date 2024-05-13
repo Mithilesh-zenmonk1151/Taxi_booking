@@ -3,10 +3,6 @@ import React from 'react'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import headerlayout from "@/app/ui/headerlayout.module.css";
 import SearchbarCompo from '@/components/searchBar/SearchbarCompo';
-
-
-
-
 export default function HeaderLayout() {
   return (
     <div className={headerlayout.navbar}>

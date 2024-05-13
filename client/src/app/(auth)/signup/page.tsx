@@ -57,8 +57,14 @@ export default function SignupPage() {
         <InputFieldCompo placeholder='Enter Password eg:-abc@22' value={password} label='Password' type='password' name='password' nameT='password' customClassName='' setValue={setPassword}/>
         <InputFieldCompo placeholder='Confirm password' value={confirmPassword} label='Confirmpassword' type='text' name='confirmPassword' nameT='confirmPassword' customClassName='' setValue={setConfirmPassword}/>
         <SelectMenu label='role' text="Role" value={role} setValue={setRole} value1='Owner' text1='Owner' value2='User' text2='Customer' value3='Admin' text3='Admin'/>
+        <Box sx={{
+          display:"flex",
+          width:"100%",
+          justifyContent:"center",
+        }} >
         <Buttons handleOnClick={handleOnClick} classNameBtn={style.btnS} text='Sign Up'/>
 
+        </Box>
         <Link href="/login">Visit Login Page </Link>
        </Box>
 

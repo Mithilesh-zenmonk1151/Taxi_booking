@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     
     const res = await axios.post(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/login`,
-      respo
+      
     );
     
     const loginData=res?.data

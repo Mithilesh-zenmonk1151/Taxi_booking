@@ -5,7 +5,6 @@ import addCarService from "@/services/carService/addnewcarservice";
 // import getTestsService from "@/services/test/gettestservice";
 import fetchCars from "@/services/carService/getcarservice";
 // import loginService from "@/service/Auth/register.service";
-
 export const addcar = createAsyncThunk(
  createCarType,
   async (car:{name:string, userId:number,price:number, model:string, launchYear: string,color:string,features:string,vehicalNumber:string,rented:boolean,approved:boolean, allowedCity: string[]}, { rejectWithValue }) => {

@@ -13,10 +13,16 @@ export default function Buttons(props:buttonProps) {
     const {text,classNameBtn,handleOnClick,src,customSrcClass}=props
   return (
     <div>
-         <Stack spacing={2} direction="row" className={classNameBtn}>
-      <Button variant="contained"    onClick={handleOnClick} type='submit'> <Box className={customSrcClass}>
+         <Stack spacing={2} direction="row" className={classNameBtn} sx={{
+          display:"flex",
+          justifyContent:"center",
+         }}>
+      <Button     onClick={handleOnClick} type='submit'> <Box className={customSrcClass}>
         {src}
-      </Box><Typography sx={{fontFamily:"Inter"}}>{text}</Typography></Button>
+      </Box><Typography sx={{fontFamily:"Poppins",
+        color:"white",
+        textTransform:"none"
+      }}>{text}</Typography></Button>
       
      
     </Stack>

@@ -5,6 +5,9 @@ enum UserRole {
   OWNER = "Owner",
   USER = "User",
 }
+console.log('')
+
+console.log("Moiddleware=====================")
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isPublicPath =
