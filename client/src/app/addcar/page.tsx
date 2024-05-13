@@ -1,5 +1,5 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 // import TextFieldCompo from '../../../../component/textField/TextFieldCompo'
 // import "./AddProductMain.css"
@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { useAmp } from "next/amp";
 import { addcar } from "@/redux/car/carAction";
 import toast from "react-hot-toast";
+import ButtonsCompo from "@/components/button/ButtonCompo";
 // import { DropzoneArea } from 'material-ui-dropzone';
 // import DragDrop from '../../../../component/dragDrop/DargDrop';
 // import Buttons from '../../../../component/button/Button';
@@ -193,7 +194,8 @@ function AddCar() {
         <Progressbar/>
         <Progressbar/> */}
       </Box>
-      <Buttons text="Add car" handleOnClick={handleOnClick} />
+      {/* <ButtonsCompo text="Add car" handleOnClick={handleOnClick} /> */}
+      <Button onClick={handleOnClick}>Add car</Button>
     </Stack>
   );
 }

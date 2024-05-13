@@ -1,3 +1,4 @@
+// "use client"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { Box, Typography } from '@mui/material';
@@ -9,7 +10,7 @@ type buttonProps={
     type?:string,
     handleOnClick?: (event: React.MouseEvent<HTMLButtonElement|HTMLAnchorElement, MouseEvent>) => void;
 }
-export default function Buttons(props:buttonProps) {
+export default function ButtonsCompo(props:buttonProps) {
     const {text,classNameBtn,handleOnClick,src,customSrcClass}=props
   return (
     <div>

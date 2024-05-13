@@ -15,12 +15,12 @@ exports.register=async(req,res)=>{
 exports.login= async(req,res)=>{
     try{
         const response= await authService.login(req);
+        console.log("REsponse===",response);
         res.status(200).json({response})
 
     }
     catch(error){
         console.log(error);
-        throw new CustomError("Internal Server error",500);
 
     }
 }
